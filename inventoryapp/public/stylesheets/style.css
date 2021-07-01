@@ -17,6 +17,7 @@ body {
   height: 7vh;
   font-size: 35px;
   border-bottom: solid black 2px;
+  text-decoration: none;
 }
 .category-list-header-container{
   display: flex;
