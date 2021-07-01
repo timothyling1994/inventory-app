@@ -4,7 +4,7 @@ var Item = require('../models/item');
 var async = require('async');
 
 // Display list of all categorys.
-exports.category_list = function(req, res) {
+exports.category_list = function(req, res, next) {
 
     Category.find({}, 'name description')
     .exec(function (err, list_categories) {

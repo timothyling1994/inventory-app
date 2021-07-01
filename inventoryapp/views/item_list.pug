@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div(class="category-list-header-container")
+    div(class="category-header")= title
+
+  - items_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+  each item in items_list
+    div(class="category-list-container")
+      li(class="category-list")
+        a(href=item.url) #{item.name}
+
+
+  else
+    li There are no items.
+
+  div(class="add-category-btn-container") 
+    div(class="add-category-btn")
+      a(href="/catalog/item/create") Add Item
