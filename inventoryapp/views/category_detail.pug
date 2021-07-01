@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  div(class="category-header")=title
+
+  div(class="category-description") #[strong description:] #{category.description}
+
+  hr
+
+  div(class="row")
+    div(class="row-attributes")
+      a(href=category.url+'/delete') Delete Category
+    div(class="row-attributes")
+      a(href=category.url+'/update') Update Category

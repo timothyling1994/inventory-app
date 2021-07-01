@@ -24,7 +24,7 @@ body {
   justify-content: center;
   width: 100%;
 }
-.category-list-header{
+.category-header{
   font-size: 25px;
   text-align: center;
   padding: 0.25em 0.5em 0.25em 0.5em;
@@ -61,3 +61,37 @@ body {
   padding: 0.5em;
   margin: 0.5em;
 }
+
+.form-group{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.label{
+  width: 100%;
+  text-align: center;
+}
+.button-row{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.category-description{
+  text-align: center;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.row-attributes{
+  width: 100%;
+  text-align: center;
+}
+

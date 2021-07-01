@@ -2,7 +2,7 @@ extends layout
 
 block content
   div(class="category-list-header-container")
-    div(class="category-list-header")= title
+    div(class="category-header")= title
 
   - category_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
   each category in category_list
