@@ -121,11 +121,43 @@ exports.category_delete_post = function(req, res,next) {
 
 // Display category update form on GET.
 exports.category_update_get = function(req, res) {
-    
+    Category.findById(req.params.id).exec(function(err,category){
+        res.render('category_form',{title:'Update Category',category:category})
+    });
 
 };
 
 // Handle category update on POST.
 exports.category_update_post = [
+    body('category_name').trim().isLength({ min: 1 }).escape().withMessage('Category name must be specified.')
+        .isAlphanumeric().withMessage('First name has non-alphanumeric characters.'),
+    body('category_description').escape(),
+    (req, res, next) => {
 
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            console.log("errors");
+            // There are errors. Render form again with sanitized values/errors messages.
+            res.render('category_form', { title: 'Update Category', category: req.body, errors: errors.array() });
+            return;
+        }
+
+        else
+        {
+            var category = new Category(
+            { 
+                name: req.body.category_name,
+                description: req.body.category_description,
+                _id:req.params.id,
+            });
+
+            Category.findByIdAndUpdate(req.params.id, category, {}, function (err,thecategory) {
+                if (err) { return next(err); }
+                   // Successful - redirect to genre detail page.
+                   res.redirect(thecategory.url);
+                });
+        }
+
+    }
 ];
